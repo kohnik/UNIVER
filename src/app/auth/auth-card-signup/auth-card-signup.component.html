@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="container__title"><p>Sign Up</p></div>
+  <form [formGroup]="myForm"  class="container__form">
+    <div class="container__input">
+      <label class="container__EmailText">Email</label>
+      <mat-form-field>
+        <input matInput
+            type="email"
+               formControlName="userEmail"
+            (click)="chooseValueMistakeEmail()"/>
+      </mat-form-field>
+
+      <div *ngIf="mistakeValidEmail" class="container__error">
+        Invalid email. Example: "name@gmail.com"
+        dont't use only number
+      </div>
+
+    </div>
+    <div class="container__input">
+      <label>Password</label>
+      <mat-form-field>
+      <input
+        matInput
+        type="password"
+        formControlName="userPassword"
+        (click)="chooseValueMistakePass()"
+      />
+      </mat-form-field>
+      <div *ngIf="mistakeValidPass" class="container__error">
+        Very short password. Min 6 symbol
+      </div>
+      <div *ngIf="authEror" class="container__error">
+        {{authEror}}
+      </div>
+    </div>
+
+    <div class="container__buttonSubmit">
+      <button mat-raised-button
+        type="submit"
+        (click)="onSignup()">
+        Sign up
+      </button>
+    </div>
+  </form>
+</div>

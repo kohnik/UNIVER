@@ -1,0 +1,29 @@
+<mat-toolbar>
+  <span>Image Finder</span>
+  <span class="example-spacer"></span>
+  <button *ngIf="authService.currentUserUIDForReq"  mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+
+
+  <div class="navbar-nav" *ngIf="!authService.currentUserUIDForReq" >
+    <button
+      mat-button
+      *ngIf="!authService.displaySignInOrOn"
+      class="nav-link login"
+      (click)="changeLogin()"
+      routerLink="">Sign in</button>
+    <button
+      mat-button
+      *ngIf="authService.displaySignInOrOn"
+      class="nav-link login"
+      (click)="changeLogin()"
+    >Sign up</button>
+  </div>
+</mat-toolbar>

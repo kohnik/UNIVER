@@ -1,0 +1,73 @@
+.containerForSearchPhoto
+{
+  margin: 20px 0 20px 20px;
+  width: 30vw;
+}
+.containerForFoundPhoto
+{
+  &__tag
+  {
+    background: burlywood;
+    margin: 5px;
+    border-radius: 20px;
+    padding: 2px;
+    font-size: 13px;
+  }
+  &__CardFooter
+  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &>mat-label
+    {
+      color: green;
+      font-size: 20px;
+    }
+  }
+}
+ul {
+  column-count: 4;
+  column-gap: 29px;
+
+}
+
+ul li {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 36px;
+  padding: 10px;
+}
+ul li>button{
+  width: 100%;
+}
+
+.countPhotos
+{
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: flex-end;
+  padding: 0 100px;
+  &>span
+  {
+    opacity: 50%;
+  }
+}
+.noImageMessageContainer
+{
+  &>span
+  {
+    font-size: 20px;
+    margin-left: 100px;
+  }
+}
+//.example-card
+//{
+// visibility: hidden;
+//}
+//.example-card.visible
+//{
+//  visibility: visible;
+//}
+
+

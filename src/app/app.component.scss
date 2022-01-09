@@ -1,0 +1,25 @@
+.body
+{
+display: flex;
+
+}
+
+.waitingMode
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  position: fixed;
+  background: #c4CAC4B0;
+  top:0;
+
+  &>span
+  {
+    position: absolute;
+    font-size: 20px;
+    color: black;
+  }
+}

@@ -1,0 +1,22 @@
+.container
+{
+  width: 95vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__card
+  {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    min-height: 200px;
+  }
+  &__ChooseLoginGroup
+  {
+    text-align: center;
+    padding-top: 20px;
+  }
+
+}

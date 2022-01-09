@@ -1,0 +1,18 @@
+<div class="mainBookmarkContainer">
+  <div class="mainBookmarkContainer__noImageMessageContainer" *ngIf="!dataForBookmarkImages">
+    <span class="mainBookmarkContainer__noImageMessage"> No image here. Would you try to add for anything else?</span>
+  </div>
+  <ul >
+    <li *ngFor="let photo of dataForBookmarkImages">
+      <mat-card class="example-card" >
+        <img mat-card-image [src]="'https://live.staticflickr.com/' + photo.server + '/'+ photo.id + '_' +photo.secret  +'.jpg'">
+          <button mat-raised-button color="warn" type="button" (click)="deleteImage(photo)">Delete image</button>
+
+      </mat-card>
+    </li>
+  </ul>
+</div>
+
+
+
+
