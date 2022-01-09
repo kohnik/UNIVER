@@ -60,7 +60,7 @@ export class ChartComponent implements OnInit {
   public showChart() {
     if(this.range.value.start && this.range.value.end && this.selectedValue) {
 
-      this.dataService.getData(this.range.value.start, this.range.value.end, this.selectedValue).subscribe(data=> {
+      this.dataService.getData(this.range.value.start.getTime(), this.range.value.end.getTime(), this.selectedValue).subscribe(data=> {
         this.lineChartLabels = []
         this.lineChartData = []
         this.lineChartColors = []
@@ -83,7 +83,7 @@ export class ChartComponent implements OnInit {
         alert('САША ЗАПРОС НЕ ПРОШЁЛ')
       })
 
-      this.dataService.getExtremum(this.range.value.start, this.range.value.end).subscribe(data=> {
+      this.dataService.getExtremum(this.range.value.start.getTime(), this.range.value.end.getTime()).subscribe(data=> {
         this.minTemperature= data.min
         this.maxTemperature= data.max
       }, data=> {
@@ -91,7 +91,7 @@ export class ChartComponent implements OnInit {
       })
     }
   }
-  
+
   public generateColor() {
     return '#' + Math.floor(Math.random() * 16777215).toString(16)
   }

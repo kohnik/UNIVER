@@ -13,6 +13,7 @@ export class DataService {
 
   getData(startDate: number, endDate: number, region: string): Observable<DataForCharts> {
     const paramsForImageReq = `localhost:8080/api/v1/registrations?before=${startDate}&after=${endDate}&region=${region}`;
+    console.log(paramsForImageReq)
     return this.http.get<DataForCharts>(paramsForImageReq)
   }
 
