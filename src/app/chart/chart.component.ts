@@ -18,6 +18,7 @@ interface Food {
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
+
   public selectedValue: string = ''
   public minTemperature?: number;
   public maxTemperature?: number;
@@ -32,7 +33,6 @@ export class ChartComponent implements OnInit {
     {value: 'tacos-2', viewValue: 'German'},
     {value: 'tacos-4', viewValue: 'Branislav'},
   ];
-
 
   public lineChartData: ChartDataSets[] = [];
   public lineChartLabels: Label[] = []
@@ -53,40 +53,40 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
   }
 
   public showChart() {
-    if(this.range.value.start && this.range.value.end && this.selectedValue) {
+    if (this.range.value.start && this.range.value.end && this.selectedValue) {
 
-      this.dataService.getData(this.range.value.start.getTime(), this.range.value.end.getTime(), this.selectedValue).subscribe(data=> {
+      this.dataService.getData(this.range.value.start.getTime(), this.range.value.end.getTime(), this.selectedValue).subscribe(data => {
         this.lineChartLabels = []
         this.lineChartData = []
         this.lineChartColors = []
 
-        data.registrations.forEach( (item: Sensor, index: number)=> {
+        data.registrations.forEach((item: Sensor, index: number) => {
           this.lineChartLabels.push(`${index}`)
         })
 
-        data.ids.forEach( (id:number) => {
+        data.ids.forEach((id: number) => {
           let filteredRegistrations = data.registrations.filter((item: Sensor) => item.sensorId === id)
-          let dataOfReg = filteredRegistrations.map((item: Sensor) => { return item.temperature})
-          this.lineChartData.push( {data: dataOfReg, label: 'Series'},)
+          let dataOfReg = filteredRegistrations.map((item: Sensor) => {
+            return item.temperature
+          })
+          this.lineChartData.push({data: dataOfReg, label: 'Series'},)
           this.lineChartColors.push({
             borderColor: `${this.generateColor()}`,
             backgroundColor: 'rgba(196, 202, 196, 0)',
           })
         })
 
-      }, (data)=> {
+      }, (data) => {
         alert('САША ЗАПРОС НЕ ПРОШЁЛ')
       })
 
-      this.dataService.getExtremum(this.range.value.start.getTime(), this.range.value.end.getTime()).subscribe(data=> {
-        this.minTemperature= data.min
-        this.maxTemperature= data.max
-      }, data=> {
+      this.dataService.getExtremum(this.range.value.start.getTime(), this.range.value.end.getTime()).subscribe(data => {
+        this.minTemperature = data.min
+        this.maxTemperature = data.max
+      }, data => {
         alert('САША ЗАПРОС НЕ ПРОШЁЛ x2')
       })
     }
