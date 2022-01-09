@@ -49,7 +49,7 @@
     <mat-card-subtitle>{{maxTemperature}}</mat-card-subtitle>
   </mat-card-header>
 
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.length > 0">
 
     <ng-container matColumnDef="position">
       <th mat-header-cell *matHeaderCellDef> No. </th>
