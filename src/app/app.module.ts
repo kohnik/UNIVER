@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 import { AuthGuard } from './core/guards/guardAuth/auth.guard';
 import { MainGuard } from './core/guards/guardMain/main.guard';
 import {  ChartsModule } from 'ng2-charts';
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {  ChartsModule } from 'ng2-charts';
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     ChartsModule,
+    MatTableModule,
   ],
   providers: [AuthGuard, MainGuard],
   bootstrap: [AppComponent],

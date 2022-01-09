@@ -5,9 +5,10 @@ import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 
 import { Color, Label } from 'ng2-charts';
 import { DataService } from "../core/services/dataService/data.service";
-import { Sensor } from "../shared/interface";
+import { DataForCharts, PeriodicElement, Sensor } from "../shared/interface";
+import { ELEMENT_DATA } from "../shared/constants";
 
-interface Food {
+interface Region {
   value: string;
   viewValue: string;
 }
@@ -19,6 +20,9 @@ interface Food {
 })
 export class ChartComponent implements OnInit {
 
+  displayedColumns: string[] = ['position', 'temperature', 'time', 'region'];
+  dataSource:PeriodicElement[] = [];
+
   public selectedValue: string = ''
   public minTemperature?: number;
   public maxTemperature?: number;
@@ -27,11 +31,10 @@ export class ChartComponent implements OnInit {
     end: new FormControl(),
   });
 
-  public foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Minsk'},
-    {value: 'pizza-1', viewValue: 'Belgian'},
-    {value: 'tacos-2', viewValue: 'German'},
-    {value: 'tacos-4', viewValue: 'Branislav'},
+  public foods: Region[] = [
+    {value: 'Minsk', viewValue: 'Minsk'},
+    {value: 'Brest', viewValue: 'Brest'},
+    {value: 'Grodno', viewValue: 'Grodno'},
   ];
 
   public lineChartData: ChartDataSets[] = [];
@@ -78,10 +81,11 @@ export class ChartComponent implements OnInit {
             backgroundColor: 'rgba(196, 202, 196, 0)',
           })
         })
-
+        this.setValueFromTable(data)
       }, (data) => {
         alert('САША ЗАПРОС НЕ ПРОШЁЛ')
       })
+
 
       this.dataService.getExtremum(this.range.value.start.getTime(), this.range.value.end.getTime()).subscribe(data => {
         this.minTemperature = data.min
@@ -94,5 +98,42 @@ export class ChartComponent implements OnInit {
 
   public generateColor() {
     return '#' + Math.floor(Math.random() * 16777215).toString(16)
+  }
+
+  private setValueFromTable(data:DataForCharts) {
+    // data = {
+    //   "registrations": [
+    //     {
+    //       "date": 1641397316,
+    //       "temperature": 34.7,
+    //       "sensorId": 1,
+    //       "region": "Minsk"
+    //     },
+    //     {
+    //       "date": 1641483715,
+    //       "temperature": 23.6,
+    //       "sensorId": 1,
+    //       "region": "Minsk"
+    //     },
+    //     {
+    //       "date": 1641310916,
+    //       "temperature": 23.6,
+    //       "sensorId": 1,
+    //       "region": "Minsk"
+    //     },
+    //     {
+    //       "date": 1641570077,
+    //       "temperature": 34.5,
+    //       "sensorId": 1,
+    //       "region": "Minsk"
+    //     }
+    //   ],
+    //   "ids": [
+    //     1
+    //   ]
+    // }
+    this.dataSource = data.registrations.map((item,i)=>{
+      return {position: i+1, name: `${item.temperature}`, weight: `${new Date(item.date)}`, symbol: `${item.region}` }
+    })
   }
 }
