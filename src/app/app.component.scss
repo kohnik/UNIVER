@@ -1,11 +1,9 @@
-.body
-{
-display: flex;
+.body {
+  display: flex;
 
 }
 
-.waitingMode
-{
+.waitingMode {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,10 +12,9 @@ display: flex;
   z-index: 100;
   position: fixed;
   background: rgba(196, 202, 196, 0);
-  top:0;
+  top: 0;
 
-  &>span
-  {
+  & > span {
     position: absolute;
     font-size: 20px;
     color: black;

@@ -13,7 +13,7 @@ interface Food {
 }
 
 @Component({
-  selector: 'app-search-photo',
+  selector: 'app-chart',
   templateUrl: './chart.component.html',
   styleUrls: ['./chart.component.scss'],
 })
