@@ -21,7 +21,7 @@ export class AuthService {
     return this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        this.router.navigate(['search']);
+        this.router.navigate(['chart']);
       });
   }
 
@@ -29,7 +29,7 @@ export class AuthService {
     return this.firebaseAuth
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        this.router.navigate(['search']);
+        this.router.navigate(['chart']);
       });
   }
 
@@ -39,7 +39,7 @@ export class AuthService {
 
   authLogin(provider: any): Promise<void> {
     return this.firebaseAuth.signInWithPopup(provider).then(() => {
-      this.router.navigate(['search']);
+      this.router.navigate(['chart']);
     });
   }
 
@@ -63,13 +63,13 @@ export class AuthService {
         {
           this.currentUserUIDForReq = req.uid?.replace('.', '_') || '';
           this.subscriptionForStartActivity = startOutTimeActivity().subscribe();
-          this.subscriptionForDifferenceActivity =
-            differenceBetweenEntryAndNowTime().subscribe(() => {
-              let entryTime = new Date().getTime();
-              if (entryTime - JSON.parse(<string>localStorage.getItem('userActivity')) > 60000) {
-                this.logout();
-              }
-            });
+          // this.subscriptionForDifferenceActivity =
+          //   differenceBetweenEntryAndNowTime().subscribe(() => {
+          //     let entryTime = new Date().getTime();
+          //     if (entryTime - JSON.parse(<string>localStorage.getItem('userActivity')) > 60000) {
+          //       this.logout();
+          //     }
+          //   });
         }
         return req;
       })

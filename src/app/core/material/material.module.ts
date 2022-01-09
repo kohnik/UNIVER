@@ -9,6 +9,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+
 
 const material = [
   MatButtonModule,
@@ -21,10 +25,18 @@ const material = [
   MatGridListModule,
   MatButtonToggleModule,
   MatMenuModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule
 ];
 
 @NgModule({
   imports: [material],
   exports: [material],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
 })
-export class MaterialModule {}
+export class MaterialModule {
+}

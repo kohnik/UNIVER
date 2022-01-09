@@ -6,8 +6,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/material/material.module';
 import { AsideMenuComponent } from './shared/aside-menu/aside-menu.component';
-import { SearchPhotosComponent } from './photos/search-photos/search-photos.component';
-import { BookmarksComponent } from './photos/bookmarks/bookmarks.component';
+import { ChartComponent } from './chart/chart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
@@ -20,14 +19,14 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AuthGuard } from './core/guards/guardAuth/auth.guard';
 import { MainGuard } from './core/guards/guardMain/main.guard';
+import {  ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AsideMenuComponent,
-    SearchPhotosComponent,
-    BookmarksComponent,
+    ChartComponent,
     AuthCardComponent,
     AuthCardSigninComponent,
     AuthCardSignupComponent,
@@ -44,6 +43,7 @@ import { MainGuard } from './core/guards/guardMain/main.guard';
     InfiniteScrollModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
+    ChartsModule,
   ],
   providers: [AuthGuard, MainGuard],
   bootstrap: [AppComponent],

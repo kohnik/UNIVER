@@ -1,30 +1,47 @@
-.containerForSearchPhoto
-{
-  margin: 20px 0 20px 20px;
+.containerForSearchPhoto {
+  margin: 20px 0 0px 20px;
   width: 30vw;
 }
-.containerForFoundPhoto
-{
-  &__tag
-  {
+
+.containerForRegion {
+  margin: 0 0 0px 20px;
+  width: 30vw;
+}
+
+.containerForButton {
+  position: relative;
+  left: 0;
+  margin-bottom: 20px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  padding: 20px;
+}
+.containerForFoundPhoto {
+  &__tag {
     background: burlywood;
     margin: 5px;
     border-radius: 20px;
     padding: 2px;
     font-size: 13px;
   }
-  &__CardFooter
-  {
+
+  &__CardFooter {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &>mat-label
-    {
+
+    & > mat-label {
       color: green;
       font-size: 20px;
     }
   }
 }
+
 ul {
   column-count: 4;
   column-gap: 29px;
@@ -37,30 +54,30 @@ ul li {
   margin-bottom: 36px;
   padding: 10px;
 }
-ul li>button{
+
+ul li > button {
   width: 100%;
 }
 
-.countPhotos
-{
+.countPhotos {
   display: flex;
   box-sizing: border-box;
   width: 100%;
   justify-content: flex-end;
   padding: 0 100px;
-  &>span
-  {
+
+  & > span {
     opacity: 50%;
   }
 }
-.noImageMessageContainer
-{
-  &>span
-  {
+
+.noImageMessageContainer {
+  & > span {
     font-size: 20px;
     margin-left: 100px;
   }
 }
+
 //.example-card
 //{
 // visibility: hidden;

@@ -28,7 +28,7 @@ export class AuthGuard implements CanActivate {
       map((data) => {
         if (!!data) {
           console.log(1)
-          this.router.navigate(['/search']);
+          this.router.navigate(['/chart']);
           return !!data;
         }
         return !data;

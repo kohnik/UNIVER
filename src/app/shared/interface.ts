@@ -44,10 +44,24 @@ export interface FlickrPhotos {
   total: number;
 
 }
-export interface FleckrResponse
+export interface DataForCharts
 {
-  photos: FlickrPhotos
-  stat:string;
+  ids: number[];
+  registrations: Sensor[]
+}
+
+export interface Extremum
+{
+  max: number;
+  min: number;
+}
+
+export interface Sensor
+{
+  date: number;
+  temperature: number;
+  sensorId: number;
+  region: string;
 }
 export interface DataForBookmarkPhoto {
   server: string;
