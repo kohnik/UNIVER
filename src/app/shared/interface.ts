@@ -16,8 +16,8 @@ export interface Sensor {
 }
 
 export interface PeriodicElement {
-  name: string;
+  temperature: string;
   position: number;
-  weight: string;
-  symbol: string;
+  time: string;
+  region: string;
 }

@@ -20,7 +20,7 @@ interface Region {
 export class ChartComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'temperature', 'time', 'region'];
-  dataSource:PeriodicElement[] = [];
+  dataSource: PeriodicElement[] = [];
 
   public selectedValue: string = ''
   public minTemperature?: number;
@@ -82,6 +82,7 @@ export class ChartComponent implements OnInit {
         })
         this.setValueFromTable(data)
       }, (data) => {
+        this.setValueFromTable(data)
         alert('САША ЗАПРОС НЕ ПРОШЁЛ')
       })
 
@@ -99,40 +100,45 @@ export class ChartComponent implements OnInit {
     return '#' + Math.floor(Math.random() * 16777215).toString(16)
   }
 
-  private setValueFromTable(data:DataForCharts) {
-    // data = {
-    //   "registrations": [
-    //     {
-    //       "date": 1641397316,
-    //       "temperature": 34.7,
-    //       "sensorId": 1,
-    //       "region": "Minsk"
-    //     },
-    //     {
-    //       "date": 1641483715,
-    //       "temperature": 23.6,
-    //       "sensorId": 1,
-    //       "region": "Minsk"
-    //     },
-    //     {
-    //       "date": 1641310916,
-    //       "temperature": 23.6,
-    //       "sensorId": 1,
-    //       "region": "Minsk"
-    //     },
-    //     {
-    //       "date": 1641570077,
-    //       "temperature": 34.5,
-    //       "sensorId": 1,
-    //       "region": "Minsk"
-    //     }
-    //   ],
-    //   "ids": [
-    //     1
-    //   ]
-    // }
-    this.dataSource = data.registrations.map((item,i)=>{
-      return {position: i+1, name: `${item.temperature}`, weight: `${new Date(item.date)}`, symbol: `${item.region}`,}
-    })
+  private setValueFromTable(data: DataForCharts) {
+    data = {
+      "registrations": [
+        {
+          "date": 1641397316,
+          "temperature": 34.7,
+          "sensorId": 1,
+          "region": "Minsk"
+        },
+        {
+          "date": 1641483715,
+          "temperature": 23.6,
+          "sensorId": 1,
+          "region": "Minsk"
+        },
+        {
+          "date": 1641310916,
+          "temperature": 23.6,
+          "sensorId": 1,
+          "region": "Minsk"
+        },
+        {
+          "date": 1641570077,
+          "temperature": 34.5,
+          "sensorId": 1,
+          "region": "Minsk"
+        }
+      ],
+      "ids": [
+        1
+      ]
+    }
+    this.dataSource = data ? data.registrations.map((item, i) => {
+      return {
+        position: i + 1,
+        temperature: `${item.temperature}`,
+        time: `${new Date(item.date)}`,
+        region: `${item.region}`,
+      }
+    }) : [];
   }
 }
