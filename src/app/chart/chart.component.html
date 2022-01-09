@@ -39,14 +39,14 @@
   </div>
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title *ngIf="minTemperature">MAX: </mat-card-title>
-    <mat-card-subtitle>{{minTemperature}}</mat-card-subtitle>
+    <mat-card-title *ngIf="maxTemperature">MAX: </mat-card-title>
+    <mat-card-subtitle>{{maxTemperature}}</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title *ngIf="maxTemperature">MIN: </mat-card-title>
-    <mat-card-subtitle>{{maxTemperature}}</mat-card-subtitle>
+    <mat-card-title *ngIf="minTemperature">MIN: </mat-card-title>
+    <mat-card-subtitle>{{minTemperature}}</mat-card-subtitle>
   </mat-card-header>
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="dataSource.length > 0">
