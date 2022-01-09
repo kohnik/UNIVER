@@ -132,7 +132,7 @@ export class ChartComponent implements OnInit {
     //   ]
     // }
     this.dataSource = data.registrations.map((item,i)=>{
-      return {position: i+1, name: `${item.temperature}`, weight: `${new Date(item.date)}`, symbol: `${item.region}` }
+      return {position: i+1, name: `${item.temperature}`, weight: `${new Date(item.date)}`, symbol: `${item.region}`,}
     })
   }
 }
