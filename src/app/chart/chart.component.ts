@@ -6,7 +6,6 @@ import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
 import { DataService } from "../core/services/dataService/data.service";
 import { DataForCharts, PeriodicElement, Sensor } from "../shared/interface";
-import { ELEMENT_DATA } from "../shared/constants";
 
 interface Region {
   value: string;

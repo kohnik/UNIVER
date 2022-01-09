@@ -1,6 +1,5 @@
 import { fromEvent, merge, timer } from 'rxjs';
 import { auditTime, map } from 'rxjs/operators';
-import { PeriodicElement } from "./interface";
 
 
 export const patternForEmail = /[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}/;
@@ -38,5 +37,4 @@ export const differenceBetweenEntryAndNowTime = () => {
   return timer(0, 10000).pipe(auditTime(20000));
 };
 
-export const ELEMENT_DATA: PeriodicElement[] = [];
 
