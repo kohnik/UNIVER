@@ -82,7 +82,6 @@ export class ChartComponent implements OnInit {
         })
         this.setValueFromTable(data)
       }, (data) => {
-        this.setValueFromTable(data)
         alert('САША ЗАПРОС НЕ ПРОШЁЛ')
       })
 
@@ -101,37 +100,37 @@ export class ChartComponent implements OnInit {
   }
 
   private setValueFromTable(data: DataForCharts) {
-    data = {
-      "registrations": [
-        {
-          "date": 1641397316,
-          "temperature": 34.7,
-          "sensorId": 1,
-          "region": "Minsk"
-        },
-        {
-          "date": 1641483715,
-          "temperature": 23.6,
-          "sensorId": 1,
-          "region": "Minsk"
-        },
-        {
-          "date": 1641310916,
-          "temperature": 23.6,
-          "sensorId": 1,
-          "region": "Minsk"
-        },
-        {
-          "date": 1641570077,
-          "temperature": 34.5,
-          "sensorId": 1,
-          "region": "Minsk"
-        }
-      ],
-      "ids": [
-        1
-      ]
-    }
+    // data = {
+    //   "registrations": [
+    //     {
+    //       "date": 1641397316,
+    //       "temperature": 34.7,
+    //       "sensorId": 1,
+    //       "region": "Minsk"
+    //     },
+    //     {
+    //       "date": 1641483715,
+    //       "temperature": 23.6,
+    //       "sensorId": 1,
+    //       "region": "Minsk"
+    //     },
+    //     {
+    //       "date": 1641310916,
+    //       "temperature": 23.6,
+    //       "sensorId": 1,
+    //       "region": "Minsk"
+    //     },
+    //     {
+    //       "date": 1641570077,
+    //       "temperature": 34.5,
+    //       "sensorId": 1,
+    //       "region": "Minsk"
+    //     }
+    //   ],
+    //   "ids": [
+    //     1
+    //   ]
+    // }
     this.dataSource = data ? data.registrations.map((item, i) => {
       return {
         position: i + 1,
